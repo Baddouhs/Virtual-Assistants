@@ -1,0 +1,29 @@
+import random
+
+# Les réponses possibles du chatbot
+responses = {
+    "bonjour": ["Bonjour!", "Hello!"],
+    "comment vas-tu?": ["Je vais bien, merci de demander!", "Très bien, et toi?", "Ça va, merci!"],
+    "quel est ton nom?": ["Je suis ChatBot, ravie de vous parler!"],
+    "quelle est l'adresse de l'institut?": ["L'adresse de l'Institut Spécialisé de Technologie Appliquée est: X489+MGW, Av. Hassan II, Rabat."],
+    "où est-ce que je peux trouver des information sur l'inscription?": ["Lancement de l’inscription en ligne aux formations des niveaux Technicien Spécialisé et Technicien (formations diplômantes et qualifiantes) dispensées par les établissements de l’OFPPT au titre de l’année 2022/2023 sur la plateform takwine.ofppt.ma; Vous pouvez trouver la date de la rentrée sur le site web de l'école!", "Je suis désolé, je ne connais pas la date de la rentrée."],
+    "quel est le nombre de filières proposée par l'institut?": ["L'OFPPT offre diverses filières de formation professionnelle dans différents secteurs d'activité. En 2020, il y avait plus de 300 filières disponibles dans les instituts."],
+    "quel est le nombre des instituts répartis dans le pays?": ["Le nombre d'instituts OFPPT au Maroc est susceptible de varier, mais en 2020, il y avait 368 instituts dans tout le pays, comme indiqué dans le rapport annuel de l'OFPPT."],
+    "consulter le site web": ["https://www.ofppt.ma/"],
+    "quelles sont les filières disponible dans l'ista hay riad?": ["Secrétariat de Direction, Gestion des Entreprises, Infographie, Développement Informatique, Infrastructures digitale, Agences de Voyages, Commerce, Assistance Dentaire. Pour plus d'information, veuillez consulter: https://moutamadris.ma/ofppt-rabat/"],
+    "merci": ["De rien!", "Je vous en prie!", "Avec plaisir!"],
+    "au revoir": ["Au revoir!", "À bientôt!", "À la prochaine!"]
+}
+
+# Fonction pour trouver la réponse appropriée du chatbot
+def find_response(message):
+    for key in responses:
+        if message.lower() == key:
+            return random.choice(responses[key])
+    return "Je suis désolée, je ne comprends pas. Veuillez consulter notre site web! https://www.ofppt.ma/ "
+
+# Boucle principale du chatbot
+while True:
+    message = input("Utilisateur: ")
+    response = find_response(message)
+    print("ChatBot:", response)
